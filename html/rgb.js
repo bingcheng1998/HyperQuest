@@ -2,8 +2,8 @@ function loadJSON(callback) {
 
     var xobj = new XMLHttpRequest();
     xobj.overrideMimeType("application/json");
-    // xobj.open('GET', '../json/3-10-0.001-1-8.json', true);
-    xobj.open('GET', 'https://raw.githubusercontent.com/bingcheng1998/CS231n-2020-spring-assignment-solution/main/HyperQuest/json/10-10-0.0001-0-8.json', true);
+    xobj.open('GET', '../json/3-10-0.001-1-8.json', true);
+    // xobj.open('GET', 'https://raw.githubusercontent.com/bingcheng1998/CS231n-2020-spring-assignment-solution/main/HyperQuest/json/10-10-0.0001-0-8.json', true);
     xobj.onreadystatechange = function() {
         if (xobj.readyState == 4 && xobj.status == "200") {
             callback(xobj.responseText);
