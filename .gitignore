@@ -1,0 +1,7 @@
+
+__pycache__/
+*.pyc
+cs231n/datasets/cifar-10-batches-py/
+pickle/
+old/
+制作指南.md
