@@ -3,7 +3,7 @@ function generateCanvas(num){
   for(let i = 0; i < num; i++){
     innerHTML += '<canvas id="myCanvas' + i +'" width="32" height="32"></canvas>\n';
   };
-  document.getElementById("gradient_canvas").innerHTML = innerHTML
+  document.getElementById("gradient_canvas").innerHTML = innerHTML;
 }
 
 function plot(data, i, canvasId) {
@@ -25,12 +25,12 @@ function plot(data, i, canvasId) {
 }
 
 function plotAllHiddenStates(data) {
-	let num = data["W1"].length;
-    console.log(num);
-    generateCanvas(num);
-    for(let i = 0; i < num; i++){
-      plot(data, i, 'myCanvas'+i)
-    };
+  let num = data["W1"].length;
+  console.log(num);
+  generateCanvas(num);
+  for(let i = 0; i < num; i++){
+    plot(data, i, 'myCanvas'+i);
+  };
 }
 
 
