@@ -1,42 +1,37 @@
-function loadJSON(callback) {
-
-    var xobj = new XMLHttpRequest();
-    xobj.overrideMimeType("application/json");
-    xobj.open('GET', '../json/3-10-0.001-1-8.json', true);
-    // xobj.open('GET', 'https://raw.githubusercontent.com/bingcheng1998/CS231n-2020-spring-assignment-solution/main/HyperQuest/json/10-10-0.0001-0-8.json', true);
-    xobj.onreadystatechange = function() {
-        if (xobj.readyState == 4 && xobj.status == "200") {
-            callback(xobj.responseText);
-        }
-    }
-    xobj.send(null);
+function generateCanvas(num){
+  innerHTML = '';
+  for(let i = 0; i < num; i++){
+    innerHTML += '<canvas id="myCanvas' + i +'" width="32" height="32"></canvas>\n';
+  };
+  document.getElementById("gradient_canvas").innerHTML = innerHTML
 }
 
-var plot = function (student, i, canvasId) {
-	var rgbdata = student['W1'][i];
-	var c = document.getElementById(canvasId); 
-	var ctx = c.getContext("2d"); 
+function plot(data, i, canvasId) {
+  let rgbdata = data['W1'][i];
+  let c = document.getElementById(canvasId); 
+  let ctx = c.getContext("2d"); 
 
-	var r,g,b; 
+  let r,g,b; 
 
-	for(var i=0; i< rgbdata.length; i++){ 
-		for(var j=0; j< rgbdata[0].length; j++){ 
-			r = rgbdata[i][j][0]; 
-			g = rgbdata[i][j][1];	 
-			b = rgbdata[i][j][2];		 
-			ctx.fillStyle = "rgba("+r+","+g+","+b+", 1)";  
-			ctx.fillRect( j, i, 1, 1 ); 
-		} 
-	} 
+  for(let i=0; i< rgbdata.length; i++){ 
+    for(let j=0; j< rgbdata[0].length; j++){ 
+      r = rgbdata[i][j][0]; 
+      g = rgbdata[i][j][1];  
+      b = rgbdata[i][j][2];    
+      ctx.fillStyle = "rgba("+r+","+g+","+b+", 1)";  
+      ctx.fillRect( j, i, 1, 1 ); 
+    } 
+  } 
+}
+
+function plotAllHiddenStates(data) {
+	let num = data["W1"].length;
+    console.log(num);
+    generateCanvas(num);
+    for(let i = 0; i < num; i++){
+      plot(data, i, 'myCanvas'+i)
+    };
 }
 
 
-loadJSON(function(response) {
-    let student = JSON.parse(response);
-	var rgbdata = student['W1'][0];
-	console.log(rgbdata);
-	plot(student, 0, 'myCanvas0')
-	plot(student, 1, 'myCanvas1')
-	plot(student, 2, 'myCanvas2')
-});
 
