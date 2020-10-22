@@ -40,7 +40,9 @@ function drawLineChart(rawJson) {
         exponentformat: 'e',
         title: 'loss',
         showline: false,
-      }
+      },
+      // showbackground: true,
+      // plot_bgcolor: '#ffffff00',
     };
 
     Plotly.newPlot('loss_chart', data, layout);

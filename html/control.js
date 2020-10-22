@@ -1,16 +1,12 @@
-
-// jsonName = '../json/10-100-0.001-1-8.json'
-
-
 function generateFrom(data, name, id){
-    let innerHTML = '<div><form name="'+id+'">\n<label>'+name+':</label>\t'+
+    let innerHTML = '<div><form name="'+id+'">\n<label>'+name+':</label>\t<p>'+
     '<input type="radio" name="'+id+'" value='+data[0]+' checked> '+data[0]+'';
     for(let i=1; i<data.length; i++){
         innerHTML += 
         '<input type="radio" name="'+id+'" value='+data[i]+' > '+data[i]+'';
     };
     innerHTML += 
-        '</form></div>';
+        '<\p></form></div>';
     return innerHTML
 }
 
@@ -61,9 +57,6 @@ function showJson(jsonName){
     loadJSON(jsonName, plotAllHiddenStates, drawLineChart, showAcc);
 }
 
-showForm()
-showJson('../json/3-10-0.004-0-8.json');
-
 function submitForm() {
 
     let hidden_size =  findSelection("hidden_size");
@@ -72,13 +65,15 @@ function submitForm() {
     let regularization =  findSelection("regularization");
     let num_epoch = 8;
 
-    jsonName = '../json/'+hidden_size+'-'+batch_size+'-'+
+    jsonName = jsonFileHead+hidden_size+'-'+batch_size+'-'+
         learning_rate+'-'+regularization+'-'+num_epoch+'.json';
     showJson(jsonName);
 
 }
 
-
+var jsonFileHead = 'https://bingcheng.openmc.cn/HyperQuest/json/'
+showForm()
+showJson(jsonFileHead+'3-10-0.004-0-8.json');
 
 
 
