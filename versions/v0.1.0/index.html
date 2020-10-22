@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+	
+<meta property="og:type" content="website" />
+<meta property="og:title" content="HyperQuest! Machine Learning Hyper-parameter Tuning.">
+<meta property="og:description" content="HHyperQuest mimics the hyperparameter tuning app from Stanford University, CS231n. HyperQuest is a web-app designed for beginners in Machine Learning to easily get a proper intuition for choosing the right hyperparameters. This is initially an extremely daunting task because not having proper hyperparameters leads to the models breaking down.">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/0081Kckwgy1gjy5jug7xbj30ar067q2t.jpg">
+<meta property="og:url" content="https://bingcheng.openmc.cn/HyperQuest/">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="robots" content="index, follow" />
+		<meta name="generator" content="RapidWeaver" />
+		<link rel="apple-touch-icon" sizes="167x167" href="https://bingcheng.openmc.cn/HyperQuest/resources/medium.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="https://bingcheng.openmc.cn/HyperQuest/resources/icon.png" />
+<link rel="apple-touch-icon" sizes="152x152" href="https://bingcheng.openmc.cn/HyperQuest/resources/small.png" />
+<link rel="mask-icon" href="https://bingcheng.openmc.cn/HyperQuest/resources/icon.png" color="rgba(253,180,48,1.00)" /><link rel="icon" type="image/png" href="https://bingcheng.openmc.cn/HyperQuest/resources/favicon_medium.png" sizes="32x32" />
+<link rel="icon" type="image/png" href="https://bingcheng.openmc.cn/HyperQuest/resources/favicon_small.png" sizes="16x16" />
+<link rel="icon" type="image/png" href="https://bingcheng.openmc.cn/HyperQuest/resources/favicon_large.png" sizes="64x64" />
+
+	
+
+	<title>HyperQuest 0.1.0</title>
+	<link rel="stylesheet" type="text/css" media="all" href="../../rw_common/themes/Future/consolidated.css?rwcache=625045291" />
+		
+	
+	 <style type="text/css" media="all">canvas {
+        eight: 50px; 
+        width: 50px;
+    }
+
+label {
+  cursor: default;
+  font-size:18px;
+}
+
+button.go {
+  width: 130px;
+  height: 40px;
+  background: linear-gradient(to bottom, #E39FE6 10%,#C289D5 100%); /* W3C */
+  border: none;
+  border-radius: 10px;
+  position: relative;
+  border-bottom: 4px solid #8A4D8A;
+  color: #fbfbfb;
+  font-weight: 600;
+  font-family: 'Open Sans', sans-serif;
+  text-shadow: 1px 1px 1px rgba(0,0,0,.4);
+  font-size: 15px;
+  text-align: left;
+  text-indent: 5px;
+  box-shadow: 0px 3px 0px 0px rgba(0,0,0,.2);
+  cursor: pointer;
+
+/* Just for presentation */  
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+button.go:active {
+  box-shadow: 0px 2px 0px 0px rgba(0,0,0,.2);
+  top: 1px;
+}
+
+button.go:after {
+  content: "";
+  width: 0;
+  height: 0;
+  display: block;
+  border-top: 20px solid #9F79A8;
+  border-bottom: 20px solid #9F79A8;
+  border-left: 16px solid transparent;
+  border-right: 20px solid #9F79A8;
+  position: absolute;
+  opacity: 0.6; 
+  right: 0;
+  top: 0;
+  border-radius: 0 5px 5px 0;  
+}</style>  		<link rel='stylesheet' type='text/css' media='all' href='../../rw_common/plugins/stacks/stacks.css?rwcache=625045291' />
+		<link rel='stylesheet' type='text/css' media='all' href='files/stacks_page_page4.css?rwcache=625045291' />
+        <script type='text/javascript' charset='utf-8' src='../../rw_common/plugins/stacks/jquery-2.2.4.min.js?rwcache=625045291'></script>
+        
+        
+        
+		
+		<script type='text/javascript' charset='utf-8' src='files/stacks_page_page4.js?rwcache=625045291'></script>
+        <meta name="formatter" content="Stacks v4.0.3 (4795)" >
+		<meta class="stacks4 stack version" id="com.rapidweavercentral.stacks.notething" name="NoteThing" content="1.0.1">
+		<meta class="stacks4 stack version" id="com.rapidweavercentral.stacks.alertthing" name="AlertThing" content="1.0.1">
+		<meta class="stacks4 stack version" id="com.rapidweavercentral.stacks.letterboxthing" name="LetterboxThing" content="1.0.1">
+		
+
+</head>
+
+<!-- This page was created with RapidWeaver from Realmac Software. http://www.realmacsoftware.com -->
+
+<body>
+	<nav class="navbar navbar-expand-lg">
+		<div class="container">
+			<a class="navbar-brand" href="https://bingcheng.openmc.cn/HyperQuest/"><img src="../../rw_common/images/HyperQuestBar.png" width="290" height="167" alt="HyperQuest"/> <span class="navbar-title">HyperQuest</span></a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+			 aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNav">
+				<ul class="navbar-nav ml-auto"><li class="nav-item"><a href="../../" rel="" class="nav-link">HyperQuest</a></li><li class="nav-item has-dropdown active"><a href="../../versions/" rel="" class="nav-link dropdown-toggle">Versions</a><ul class="navbar-nav ml-auto"><li class="nav-item active"><a href="./" rel="" class="nav-link">0.1.0</a></li></ul></li><li class="nav-item"><a href="../../about/" rel="" class="nav-link">About</a></li></ul>
+			</div>
+		</div>
+	</nav>
+
+	<header class="hero" id="hero">
+        <div class="hero-background"></div>
+		<div class="hero-overlay"></div>
+		<h1 class="hero-title">
+			HyperQuest
+			<em>Optimize your model, one parameter at a time...</em>
+		</h1>
+	</header>
+
+	<div class="content">
+		<section class="main" style="position: relative;">
+			<div class="container">
+                <div class="row">
+                    <div class="col-sm-12 main">
+                        
+<div id='stacks_out_1_page4' class='stacks_top'><div id='stacks_in_1_page4' class=''><div id='stacks_out_3_page4' class='stacks_out'><div id='stacks_in_3_page4' class='stacks_in com_rapidweavercentral_stacks_alertthing_stack'><!-- AlertThing by RapidWeaver Central. Visit http://www.weaverthings.com for more information. -->
+	<div id="alertThing_stacks_in_3_page4">
+		<div class="alertthing alignment0stacks_in_3_page4 static-bg0stacks_in_3_page4">
+		  	<div class="alertthing_border"></div>
+		  	<span class="close" title="Dismiss" href="#">&times;</span>
+	  		<div id='stacks_out_14_page4' class='stacks_out'><div id='stacks_in_14_page4' class='stacks_in markdown_stack'><h3 id="instructions">Instructions</h3>
+
+<ul>
+<li><p>You will be provided a specific dataset. Your goal is to train a two-layer network for classification on the dataset, and obtain as high validation accuracy (~0.5) as you can</p></li>
+<li><p>In the first stage, you will choose the initial network configuration</p></li>
+<li><p>In the second stage, you will run the network and check whether your configuration is good </p></li>
+</ul></div></div>
+		</div>
+	</div>
+<!-- End of AlertThing -->
+</div></div><div id='stacks_out_4_page4' class='stacks_out'><div id='stacks_in_4_page4' class='stacks_in stack_stack'><div id='stacks_out_17_page4' class='stacks_out'><div id='stacks_in_17_page4' class='stacks_in markdown_stack'><h4 id="datasetstatistics">Dataset Statistics</h4>
+
+<ul>
+<li>Classes: 10</li>
+<li>Input data size: (3, 32, 32)</li>
+<li>Examples per split: Train (8500), Val (1500)</li>
+</ul></div></div></div></div><div id='stacks_out_5_page4' class='stacks_out'><div id='stacks_in_5_page4' class='stacks_in com_rapidweavercentral_stacks_notething_stack'><!-- NoteThing by RapidWeaver Central. Visit http://www.weaverthings.com for more information. -->
+
+<div id="notethingstacks_in_5_page4">
+ <div class="notepad">
+	<div class="notepad-heading static-bg0stacks_in_5_page4 ">Control Pad</div>
+    <div class="note-entry"><div id='stacks_out_20_page4' class='stacks_out'><div id='stacks_in_20_page4' class='stacks_in stack_stack'><div id='stacks_out_22_page4' class='stacks_out'><div id='stacks_in_22_page4' class='stacks_in html_stack'><div id="form"><div><form name="hidden_size"><label>hidden_size:</label>	<br><input type="radio" name="hidden_size" value="3" checked=""> 3 <input type="radio" name="hidden_size" value="5"> 5 <input type="radio" name="hidden_size" value="10"> 10 <input type="radio" name="hidden_size" value="50"> 50 <input type="radio" name="hidden_size" value="150"> 150 </form></div><div><form name="batch_size"><label>batch_size:</label>	<br><input type="radio" name="batch_size" value="10" checked=""> 10 <input type="radio" name="batch_size" value="50"> 50 <input type="radio" name="batch_size" value="100"> 100 <input type="radio" name="batch_size" value="200"> 200 <input type="radio" name="batch_size" value="400"> 400 </form></div><div><form name="learning_rate"><label>learning_rate:</label>	<br><input type="radio" name="learning_rate" value="0.004" checked=""> 0.004 <input type="radio" name="learning_rate" value="0.003"> 0.003 <input type="radio" name="learning_rate" value="0.001"> 0.001 <input type="radio" name="learning_rate" value="0.0005"> 0.0005 <input type="radio" name="learning_rate" value="0.0001"> 0.0001 </form></div><div><form name="regularization"><label>regularization:</label>	<br><input type="radio" name="regularization" value="0" checked=""> 0 <input type="radio" name="regularization" value="0.1"> 0.1 <input type="radio" name="regularization" value="0.5"> 0.5 <input type="radio" name="regularization" value="1"> 1 <input type="radio" name="regularization" value="10"> 10 </form></div></div></div></div><div id='stacks_out_24_page4' class='stacks_out'><div id='stacks_in_24_page4' class='stacks_in html_stack'><button type="button" class="go" onclick ="javascript: submitForm()">       GO!  </button>
+
+
+</div></div></div></div></div>    
+    </div>
+</div>
+
+<!-- end of NoteThing -->
+</div></div><div id='stacks_out_6_page4' class='stacks_out'><div id='stacks_in_6_page4' class='stacks_in html_stack'><span id="acc">validation accuracy is 0.</span></div></div><div id='stacks_out_7_page4' class='stacks_out'><div id='stacks_in_7_page4' class='stacks_in com_rapidweavercentral_stacks_letterboxthing_stack'><!-- LetterboxThing by RapidWeaver Central. Visit http://www.weaverthings.com for more information.  -->
+
+	<div id="LetterboxThingstacks_in_7_page4" class="letterboxthing">
+		<div class="innerThing">
+			<div class="barThing"><a href="">
+				<span class="sliderThing"></span>
+		        <div class="boxThing">
+		          <div class="flipThing">Visualization of hidden states</div>
+		        </div> </a><!-- end of boxThing -->
+			</div><!-- end of barThing -->
+        	<div class="contentThing"><div id='stacks_out_28_page4' class='stacks_out'><div id='stacks_in_28_page4' class='stacks_in html_stack'><div id="gradient_canvas"></div>
+	</div></div> </div>      
+		</div><!-- end of innerThing -->
+	</div>
+
+<!-- end of LetterboxThing -->
+
+
+<!-- <svg><line x1="0" y1="30" x2="400" y2="30"/></line></svg> -->
+
+ 
+ 
+ 
+   
+</div></div><div id='stacks_out_8_page4' class='stacks_out'><div id='stacks_in_8_page4' class='stacks_in com_rapidweavercentral_stacks_letterboxthing_stack'><!-- LetterboxThing by RapidWeaver Central. Visit http://www.weaverthings.com for more information.  -->
+
+	<div id="LetterboxThingstacks_in_8_page4" class="letterboxthing">
+		<div class="innerThing">
+			<div class="barThing"><a href="">
+				<span class="sliderThing"></span>
+		        <div class="boxThing">
+		          <div class="flipThing">Loss </div>
+		        </div> </a><!-- end of boxThing -->
+			</div><!-- end of barThing -->
+        	<div class="contentThing"><div id='stacks_out_31_page4' class='stacks_out'><div id='stacks_in_31_page4' class='stacks_in stack_stack'><div id='stacks_out_33_page4' class='stacks_out'><div id='stacks_in_33_page4' class='stacks_in html_stack'>
+<div id="train_and_vali_acc" style="height: 300px; width: 100%;"></div></div></div></div></div> </div>      
+		</div><!-- end of innerThing -->
+	</div>
+
+<!-- end of LetterboxThing -->
+
+
+<!-- <svg><line x1="0" y1="30" x2="400" y2="30"/></line></svg> -->
+
+ 
+ 
+ 
+   
+</div></div><div id='stacks_out_9_page4' class='stacks_out'><div id='stacks_in_9_page4' class='stacks_in com_rapidweavercentral_stacks_letterboxthing_stack'><!-- LetterboxThing by RapidWeaver Central. Visit http://www.weaverthings.com for more information.  -->
+
+	<div id="LetterboxThingstacks_in_9_page4" class="letterboxthing">
+		<div class="innerThing">
+			<div class="barThing"><a href="">
+				<span class="sliderThing"></span>
+		        <div class="boxThing">
+		          <div class="flipThing">Train vs. Validation</div>
+		        </div> </a><!-- end of boxThing -->
+			</div><!-- end of barThing -->
+        	<div class="contentThing"><div id='stacks_out_36_page4' class='stacks_out'><div id='stacks_in_36_page4' class='stacks_in stack_stack'><div id='stacks_out_38_page4' class='stacks_out'><div id='stacks_in_38_page4' class='stacks_in html_stack'><div id="loss_chart" style="height: 300px; width: 100%;"></div></div></div></div></div> </div>      
+		</div><!-- end of innerThing -->
+	</div>
+
+<!-- end of LetterboxThing -->
+
+
+<!-- <svg><line x1="0" y1="30" x2="400" y2="30"/></line></svg> -->
+
+ 
+ 
+ 
+   
+</div></div></div></div>
+
+                    </div>
+
+                    <div class="col-sm-12 sidebar">
+                        <h2></h2>
+                         
+                    </div>
+                </div>
+			</div>
+		</section>
+	</div>
+
+	<div class="footer">
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<ul class="navbar-nav ml-auto"><li class="nav-item"><a href="../../" rel="" class="nav-link">HyperQuest</a></li><li class="nav-item has-dropdown active"><a href="../../versions/" rel="" class="nav-link dropdown-toggle">Versions</a></li><li class="nav-item"><a href="../../about/" rel="" class="nav-link">About</a></li></ul>
+					    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>     <p>&copy; 2018-2020 Bingcheng HU</p>     <p>         <span id="busuanzi_container_site_pv">PV: <span id="busuanzi_value_site_pv"></span>; </span>         <span id="busuanzi_container_site_uv">UV: <span id="busuanzi_value_site_uv"></span>; </span>         <span id="busuanzi_container_page_pv">Page PV:<span id="busuanzi_value_page_pv"></span>.</span>     </p>     <p><a href="http://www.beian.miit.gov.cn/">沪ICP备19014617号</a></p> <a href="#" id="rw_email_contact">Contact Me</a><script type="text/javascript">var _rwObsfuscatedHref0 = "mai";var _rwObsfuscatedHref1 = "lto";var _rwObsfuscatedHref2 = ":bi";var _rwObsfuscatedHref3 = "ngc";var _rwObsfuscatedHref4 = "hen";var _rwObsfuscatedHref5 = "g@s";var _rwObsfuscatedHref6 = "jtu";var _rwObsfuscatedHref7 = ".ed";var _rwObsfuscatedHref8 = "u.c";var _rwObsfuscatedHref9 = "n";var _rwObsfuscatedHref = _rwObsfuscatedHref0+_rwObsfuscatedHref1+_rwObsfuscatedHref2+_rwObsfuscatedHref3+_rwObsfuscatedHref4+_rwObsfuscatedHref5+_rwObsfuscatedHref6+_rwObsfuscatedHref7+_rwObsfuscatedHref8+_rwObsfuscatedHref9; document.getElementById("rw_email_contact").href = _rwObsfuscatedHref;</script>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript" src="../../rw_common/themes/Future/js/main.js?rwcache=625045291"></script>
+<script type="text/javascript" src='https://cdn.plot.ly/plotly-latest.min.js'></script>
+
+<script type="text/javascript" src='https://bingcheng.openmc.cn/HyperQuest/html/hyperquest-0.1.0.js'></script></body>
+
+</html>

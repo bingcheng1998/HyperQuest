@@ -21,11 +21,11 @@ You can visit [this site](https://bingcheng.openmc.cn/HyperQuest/) to try!
 - [x] Push the first beautiful version to github pages
 - [x] Add PV/UV to web
 - [x] Use brighter color
-- [ ] Try flat design
+- [x] Try flat design
 - [ ] generate wechat share `<meta>`
 - [ ] Add more description to web
 - [ ] Provide the easy-to-use model for other web pages
-- [ ] Add 404 page
+- [x] Add 404 page
 - [ ] Generate new model
 
 ---
