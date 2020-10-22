@@ -23,6 +23,7 @@ You can visit [this site](https://bingcheng.openmc.cn/HyperQuest/) to try!
 - [x] Use brighter color
 - [x] Try flat design
 - [ ] generate wechat share `<meta>`
+- [ ] generate tweeter share `meta`
 - [ ] Add more description to web
 - [ ] Provide the easy-to-use model for other web pages
 - [x] Add 404 page
