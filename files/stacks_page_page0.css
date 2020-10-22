@@ -36,9 +36,9 @@
 	margin: 5px 5px 5px 0;
 	padding: 2em;
 	background: ;
-	border-left: 10px solid #000000;
+	border-left: 10px solid #9933CC;
 	
-	border-left: 20px solid #000000;
+	border-left: 20px solid #9933CC;
 	 
 	opacity:.85;
 	-webkit-border-top-right-radius: 5px;
@@ -91,9 +91,9 @@
 	margin: 5px 0 5px 5px;
 	padding: 2em;
 	background: ;
-	border-right: 10px solid #000000;
+	border-right: 10px solid #9933CC;
 	
-	border-right: 20px solid #000000;
+	border-right: 20px solid #9933CC;
 	 
 	opacity:.85;
 	-webkit-border-top-left-radius: 5px;
@@ -144,7 +144,7 @@
   	position: absolute;
   	top: 5px;
   	right: 7.5px;
-  	color: #F20016 !important;
+  	color: #CC00FF !important;
   	text-decoration: none;
   	font-size: 18pt;
 	opacity: 1;
@@ -155,7 +155,7 @@
   	position: absolute;
   	top: 5px;
   	left: 7.5px;
-  	color: #F20016 !important;
+  	color: #CC00FF !important;
   	text-decoration: none;
   	font-size: 18pt;
 	opacity: 1;
@@ -440,7 +440,7 @@ to {
 	position: relative;
 	display: block;
 	overflow: hidden;
-	background: #DFDFDF;
+	background: #CBCDCC;
 	-webkit-border-bottom-right-radius: 0px;
 	-webkit-border-bottom-left-radius: 0px;
 	   -moz-border-radius-bottomright: 0px;
@@ -472,7 +472,7 @@ to {
 	position: relative;
 	width: 100%;
 	height: 10px;
-	background: #889098;
+	background: #993399;
 }
 
 
@@ -577,7 +577,7 @@ to {
 	position: relative;
 	width: 100%;
 	height: 10px;
-	background: #889098;
+	background: #9933CC;
 }
 
 
@@ -687,7 +687,7 @@ to {
 	position: relative;
 	width: 100%;
 	height: 10px;
-	background: #889098;
+	background: #9933FF;
 }
 
 

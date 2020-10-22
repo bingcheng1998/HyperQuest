@@ -20,6 +20,7 @@ You can visit [this site](https://bingcheng.openmc.cn/HyperQuest/) to try!
 - [ ] ~~Minimize the javascript~~
 - [x] Push the first beautiful version to github pages
 - [ ] Add PV/UV to web
+- [ ] Use brighter color
 - [ ] Add more description to web
 - [ ] Provide the easy-to-use model for other web pages
 - [ ] Add 404 page
@@ -40,28 +41,12 @@ You can visit [this site](https://bingcheng.openmc.cn/HyperQuest/) to try!
    <div id="train_and_vali_acc" style="height: 300px; width: 100%;"></div>
    ```
 
-2. Use the HyperQuest Javascript
+2. Use the HyperQuest Javascript (below the anchor HTML)
 
    ```javascript
    <script type="text/javascript" src='https://cdn.plot.ly/plotly-latest.min.js'></script>
    <script type="text/javascript" src='https://bingcheng.openmc.cn/HyperQuest/html/hyperquest-0.1.0.js'></script>
    ```
 
----
-
-### Try to embed HyperQuest to Markdown
-
-<div id = 'form'></div>
-<a type="button" href="javascript: submitForm()">Run</a>
-<span id="acc"></span>
-
-<p id="gradient_canvas"></p>
-<div id="loss_chart" style="height: 300px; width: 100%;"></div>
-<div id="train_and_vali_acc" style="height: 300px; width: 100%;"></div>
-
-<script type="text/javascript" src='https://cdn.plot.ly/plotly-latest.min.js'>
-</script>
-<script type="text/javascript" src='https://bingcheng.openmc.cn/HyperQuest/html/hyperquest-0.1.0.js'>
-</script>
 ---
 
