@@ -19,8 +19,10 @@ You can visit [this site](https://bingcheng.openmc.cn/HyperQuest/) to try!
 - [x] Merge all javascript to one file
 - [ ] ~~Minimize the javascript~~
 - [x] Push the first beautiful version to github pages
-- [ ] Add PV/UV to web
-- [ ] Use brighter color
+- [x] Add PV/UV to web
+- [x] Use brighter color
+- [ ] Try flat design
+- [ ] generate wechat share `<meta>`
 - [ ] Add more description to web
 - [ ] Provide the easy-to-use model for other web pages
 - [ ] Add 404 page
