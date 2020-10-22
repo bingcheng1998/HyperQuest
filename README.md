@@ -7,7 +7,7 @@ HyperQuest is a web-app used by beginners in Machine Learning to easily get a pr
 
 ## HyperQuest Alpha is ready!
 
-You can visit [this site](https://bingcheng.openmc.cn/HyperQuest/html) to try!
+You can visit [this site](https://bingcheng.openmc.cn/HyperQuest/) to try!
 
 ---
 
@@ -15,10 +15,10 @@ You can visit [this site](https://bingcheng.openmc.cn/HyperQuest/html) to try!
 
 - [x] Generate data
 - [x] Construct website with javascript
-- [ ] Transfer all json files online
-- [ ] Merge all javascript to one file
-- [ ] Minimize the javascript
-- [ ] Push the first beautiful version to github pages
+- [x] Transfer all json files online
+- [x] Merge all javascript to one file
+- [ ] ~~Minimize the javascript~~
+- [x] Push the first beautiful version to github pages
 - [ ] Add PV/UV to web
 - [ ] Add more description to web
 - [ ] Provide the easy-to-use model for other web pages
