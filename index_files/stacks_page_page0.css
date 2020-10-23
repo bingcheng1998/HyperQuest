@@ -68,7 +68,7 @@
         -ms-flex-direction: column;
             flex-direction: column;
     /*  */
-    background: url(../index_files/card_image_82.png);
+    background: url(https://img.vim-cn.com/98/c7eab719f1410b3e3b4b1874bf03c981b1cb53.png);
     /*  */
     background-color: rgba(255, 255, 255, 1.00);
     background-size: cover;
@@ -148,35 +148,47 @@
     #card-stacks_in_82_page0 .card-inner .card-caption {
       font-size: 24px;
       line-height: 34px; } }
-
-#stacks_in_90_page0 {
-	margin:  20px;
+#stacks_in_110_page0 {
+	text-align: center;
 }
 
-#stacks_out_90_page0 {
-	width: 81%;
+#stacks_in_110_page0 picture,
+#stacks_in_110_page0 source,
+#stacks_in_110_page0 image {
+	display: block;
+	max-width: 100%;
+	height: auto;
+}
+#stacks_in_111_page0 {
+	text-align: center;
 }
 
-#stacks_in_104_page0 {
-	margin:  20px;
+#stacks_in_111_page0 picture,
+#stacks_in_111_page0 source,
+#stacks_in_111_page0 image {
+	display: block;
+	max-width: 100%;
+	height: auto;
+}
+#stacks_in_112_page0 {
+	text-align: center;
 }
 
-#stacks_out_104_page0 {
-	width: 86%;
+#stacks_in_112_page0 picture,
+#stacks_in_112_page0 source,
+#stacks_in_112_page0 image {
+	display: block;
+	max-width: 100%;
+	height: auto;
+}
+#stacks_in_113_page0 {
+	text-align: center;
 }
 
-#stacks_in_106_page0 {
-	margin:  20px;
-}
-
-#stacks_out_106_page0 {
-	width: 91%;
-}
-
-#stacks_in_108_page0 {
-	margin:  16px;
-}
-
-#stacks_out_108_page0 {
-	width: 91%;
+#stacks_in_113_page0 picture,
+#stacks_in_113_page0 source,
+#stacks_in_113_page0 image {
+	display: block;
+	max-width: 100%;
+	height: auto;
 }
