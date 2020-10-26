@@ -164,7 +164,7 @@ best_acc = 0;
 prev_acc = 0;
 function showAcc(data){
     let acc = data["val_acc"];
-    document.getElementById("acc").innerHTML = '<p>best_acc = '+best_acc+', prev_acc ='+prev_acc+'<p>validation accuracy is '+acc+ '.';
+    document.getElementById("acc").innerHTML = '<p>best accuracy: '+best_acc+', previous accuracy: '+prev_acc+'.<p>validation accuracy is '+acc+ '.';
     if(acc>best_acc){best_acc = acc};
     prev_acc = acc;
 }
