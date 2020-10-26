@@ -13,7 +13,7 @@ function generateFrom(data, name, id){
 function showForm(){
     let CNN_mid_width = [32, 64, 128];
     let dropout = [0, 0.2, 0.5];
-    let regularization = [0.03, 0.02];
+    let regularization = [0.02, 0.03];
     let CNN_depth = [0, 2, 4, 6];
     let epoch = [1,2,3,4,5,6,7,8];
     let innerHTML = generateFrom(CNN_mid_width, 'CNN_mid_width', 'CNN_mid_width');
@@ -94,7 +94,7 @@ function submitForm() {
 
 var jsonFileHead = '../data/convJson/'
 showForm()
-showJson(jsonFileHead+'128-0-0.2-0.03-0.002-20-50-8.json', 5);
+showJson(jsonFileHead+'32-0-0-0.02-0.002-20-50-8.json', 1);
 
 
 
