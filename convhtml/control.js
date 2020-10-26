@@ -1,9 +1,9 @@
 function generateFrom(data, name, id){
     let innerHTML = '<div><form name="'+id+'">\n<label>'+name+':</label>\t<p>'+
-    '<input type="radio" name="'+id+'" value='+data[0]+' checked> '+data[0]+'';
+    '<input type="radio" name="'+id+'" value='+data[0]+' checked> '+data[0]+' ';
     for(let i=1; i<data.length; i++){
         innerHTML += 
-        '<input type="radio" name="'+id+'" value='+data[i]+' > '+data[i]+'';
+        '<input type="radio" name="'+id+'" value='+data[i]+' > '+data[i]+' ';
     };
     innerHTML += 
         '<\p></form></div>';
