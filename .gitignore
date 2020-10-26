@@ -7,3 +7,5 @@ old/
 制作指南.md
 .virtual_documents/
 .ipynb_checkpoints/
+conv data generator/cs231n/datasets/
+conv data generator/cs231n/notebook_images/
