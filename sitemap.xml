@@ -2,14 +2,26 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 	<url>
 		<loc>https://bingcheng.openmc.cn/HyperQuest/index.html</loc>
+		<lastmod>2020-10-26</lastmod>
 	</url>
 	<url>
 		<loc>https://bingcheng.openmc.cn/HyperQuest/versions/index.html</loc>
+		<lastmod>2020-10-26</lastmod>
 	</url>
 	<url>
 		<loc>https://bingcheng.openmc.cn/HyperQuest/versions/v0.1.0/index.html</loc>
+		<lastmod>2020-10-26</lastmod>
+	</url>
+	<url>
+		<loc>https://bingcheng.openmc.cn/HyperQuest/versions/L.0.1.3/index.html</loc>
+		<lastmod>2020-10-26</lastmod>
+	</url>
+	<url>
+		<loc>https://bingcheng.openmc.cn/HyperQuest/versions/C.0.1.1/index.html</loc>
+		<lastmod>2020-10-26</lastmod>
 	</url>
 	<url>
 		<loc>https://bingcheng.openmc.cn/HyperQuest/about/index.html</loc>
+		<lastmod>2020-10-26</lastmod>
 	</url>
 </urlset>
