@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Untitled Document</title>
+<title>Very Simple 2-layer Net Tuning</title>
 
 <!-- <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script> -->
 <!-- <script src="https://cdn.jsdelivr.net/npm/p5@1.1.9/lib/p5.js"></script> -->
@@ -12,9 +12,15 @@
     canvas {
         eight: 50px; 
         width: 50px;
+        image-rendering: optimizeSpeed;
+        image-rendering: -moz-crisp-edges;
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: -o-crisp-edges;
+        image-rendering: pixelated;
+        -ms-interpolation-mode: nearest-neighbor;
     }
 </style>
-
+<link rel="stylesheet" type="text/css" href="loading.css">
 </head>
     
 <body bgcolor="#AFEEEE">
@@ -29,10 +35,10 @@
     <div id="train_and_vali_acc" style="height: 300px; width: 100%;"></div>
 
     <script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
-    <!-- <script type="text/javascript" src="linePloty.js"></script>
+    <script type="text/javascript" src="linePloty.js"></script>
     <script type="text/javascript" src="rgb.js"></script>
-    <script type="text/javascript" src="control.js"></script> -->
-    <script type="text/javascript" src="hyperquest-0.1.0.js"></script>
+    <script type="text/javascript" src="control.js"></script>
+    <!-- <script type="text/javascript" src="hyperquest-0.1.0.js"></script> -->
 
     
     <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>

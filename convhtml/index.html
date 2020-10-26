@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Convolutional Net Tuning</title>
+<link rel="stylesheet" type="text/css" href="loading.css">
+</head>
+<style>
+
+    canvas {
+        eight: 30px; 
+        width: 30px;
+        image-rendering: optimizeSpeed;
+        image-rendering: -moz-crisp-edges;
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: -o-crisp-edges;
+        image-rendering: pixelated;
+        -ms-interpolation-mode: nearest-neighbor;
+    }
+</style>
+<body bgcolor="#AFEEEE">
+
+    <div id = 'form'>this div is for form</div>
+    <a type="button" href="javascript: submitForm()">Run with those Parms</a>
+
+    <span id="acc"></span>
+
+
+    <p id="gradient_canvas"></p>
+    <div id="loss_chart" style="height: 300px; width: 100%;"></div>
+    <div id="train_and_vali_acc" style="height: 300px; width: 100%;"></div>
+
+    <script src='https://cdn.plot.ly/plotly-latest.min.js' defer></script>
+    <script type="text/javascript" src="linePloty.js" defer></script>
+    <script type="text/javascript" src="rgb.js" defer></script>
+    <script type="text/javascript" src="control.js" defer></script>
+    <!-- <script type="text/javascript" src="hyperquest-0.1.0.js"></script> -->
+
+    
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script>
+    <p>© 2018-2020 Bingcheng HU</p>
+    <p>
+        <span id="busuanzi_container_site_pv">PV: <span id="busuanzi_value_site_pv"></span>; </span>
+        <span id="busuanzi_container_site_uv">UV: <span id="busuanzi_value_site_uv"></span>; </span>
+        <span id="busuanzi_container_page_pv">Page PV:<span id="busuanzi_value_page_pv"></span>.</span>
+    </p>
+    <p><a href="http://www.beian.miit.gov.cn/">沪ICP备19014617号</a></p>
+</body>
+</html>
