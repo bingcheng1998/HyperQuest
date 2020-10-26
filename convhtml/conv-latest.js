@@ -1,10 +1,16 @@
-function genData(dataNames, rawJson){
+function genData(dataNames, rawJson, epoch){
     data = [];
+    itrations = rawJson["epo_it"][epoch];
     for(const dataName in dataNames){
         showName = dataNames[dataName];
-        // console.log(dataNames)
-        let lineChartData = rawJson[dataName];
+        let lineChartData = rawJson["his"][dataName];
         let num = lineChartData.length;
+        if (itrations < num && epoch != 8 && dataName == "loss_his"){
+          num = itrations;
+        } else if (epoch < 8 && dataName != "loss_his") {
+          num = epoch+2;
+        }
+        console.log(num);
         let x = [];
         let y = [];
         for (let i = 0; i < num; i += 1) {
@@ -23,10 +29,10 @@ function genData(dataNames, rawJson){
     return data;
 }
 
-function drawLineChart(rawJson) {
-    dataNames = {"loss_history": "loss",};
+function drawLineChart(rawJson, epoch) {
+    dataNames = {"loss_his": "loss",};
 
-    let data = genData(dataNames, rawJson);
+    let data = genData(dataNames, rawJson, epoch);
 
     let layout = {
       title:'loss vs. time when training',
@@ -41,16 +47,14 @@ function drawLineChart(rawJson) {
         title: 'loss',
         showline: false,
       },
-      // showbackground: true,
-      // plot_bgcolor: '#ffffff00',
     };
 
     Plotly.newPlot('loss_chart', data, layout);
 
 
     dataNames = {
-        'val_acc_history':'validation', 
-        'train_acc_history':'train',
+        'vali_his':'validation', 
+        'train_his':'train',
     };
     let layout2 = {
       title:'train and validation accuracy for each epoch',
@@ -67,23 +71,23 @@ function drawLineChart(rawJson) {
         showline: false,
       }
     };
-    data = genData(dataNames, rawJson);
+    data = genData(dataNames, rawJson, epoch);
 
     Plotly.newPlot('train_and_vali_acc', data, layout2);
 }
 function generateCanvas(num){
   innerHTML = '';
   for(let i = 0; i < num; i++){
-    innerHTML += '<canvas id="myCanvas' + i +'" width="32" height="32"></canvas>\n';
+    innerHTML += '<canvas id="myCanvas' + i +'" width="5" height="5"></canvas>\n';
   };
   document.getElementById("gradient_canvas").innerHTML = innerHTML;
 }
 
-function plot(data, i, canvasId) {
-  let rgbdata = data['W1'][i];
+function plot(data, i, canvasId, epoch) {
+  let rgbdata = data["epo_W1"][epoch][i];
   let c = document.getElementById(canvasId); 
-  let ctx = c.getContext("2d"); 
-
+  var ctx = c.getContext("2d"); 
+  let smooth = false;
   let r,g,b; 
 
   for(let i=0; i< rgbdata.length; i++){ 
@@ -97,12 +101,13 @@ function plot(data, i, canvasId) {
   } 
 }
 
-function plotAllHiddenStates(data) {
-  let num = data["W1"].length;
-  console.log(num);
+function plotAllHiddenStates(data, epoch) {
+  console.log('"'+epoch+'"');
+  let num = data["epo_W1"][epoch].length;
+  
   generateCanvas(num);
   for(let i = 0; i < num; i++){
-    plot(data, i, 'myCanvas'+i);
+    plot(data, i, 'myCanvas'+i, epoch);
   };
 }
 
@@ -121,17 +126,17 @@ function generateFrom(data, name, id){
 }
 
 function showForm(){
-    let hidden_size = [3, 5, 10, 50, 150];
-    let batch_size = [10, 50, 100, 200, 400];
-    let learning_rate = [4e-3, 3e-3, 1e-3, 5e-4, 1e-4];
-    let regularization = [0, 0.1, 0.5, 1, 10];
-    // let epoch = [1,2,3,4,5,6,7,8];
-    let innerHTML = generateFrom(hidden_size, 'hidden_size', 'hidden_size');
-    innerHTML += generateFrom(batch_size, 'batch_size', 'batch_size');
-    innerHTML += generateFrom(learning_rate, 'learning_rate', 'learning_rate');
+    let CNN_mid_width = [32, 64, 128];
+    let dropout = [0, 0.2, 0.5];
+    let regularization = [0.03, 0.02];
+    let CNN_depth = [0, 2, 4, 6];
+    let epoch = [1,2,3,4,5,6,7,8];
+    let innerHTML = generateFrom(CNN_mid_width, 'CNN_mid_width', 'CNN_mid_width');
+    innerHTML += generateFrom(dropout, 'dropout', 'dropout');
+    innerHTML += generateFrom(CNN_depth, 'CNN_depth', 'CNN_depth');
     innerHTML += generateFrom(regularization, 'regularization', 'regularization');
-    // innerHTML += generateFrom(epoch, 'epoch', 'epoch');
-    console.log(innerHTML);
+    innerHTML += generateFrom(epoch, 'epoch', 'epoch');
+    // console.log(innerHTML);
     document.getElementById("form").innerHTML = innerHTML;
 }
 
@@ -145,15 +150,15 @@ function findSelection(field) {
     }
 }
 
-function loadJSON(jsonFile, fun1, fun2, fun3) {
+function loadJSON(jsonFile, fun1, fun2, fun3, epoch) {
     let xobj = new XMLHttpRequest();
     xobj.overrideMimeType("application/json");
     xobj.open('GET', jsonFile, true);
     xobj.onreadystatechange = function() {
         if (xobj.readyState == 4 && xobj.status == "200") {
             let data = JSON.parse(xobj.responseText);
-            fun1(data);
-            fun2(data);
+            fun1(data, epoch);
+            fun2(data, epoch);
             fun3(data);
         }
     }
@@ -169,10 +174,10 @@ function showAcc(data){
     prev_acc = acc;
 }
 
-async function showJson(jsonName){
+async function showJson(jsonName, epoch){
     showLoading();
-    await sleep(2000);
-    loadJSON(jsonName, plotAllHiddenStates, drawLineChart, showAcc);
+    await sleep(epoch * 1000);
+    loadJSON(jsonName, plotAllHiddenStates, drawLineChart, showAcc, epoch);
 }
 
 function showLoading(){
@@ -185,26 +190,23 @@ function sleep(ms) {
 }
 
 function submitForm() {
-    
-
-    let hidden_size =  findSelection("hidden_size");
-    let batch_size =  findSelection("batch_size");
-    let learning_rate =  findSelection("learning_rate");
+    let CNN_mid_width =  findSelection("CNN_mid_width");
+    let dropout =  findSelection("dropout");
+    let CNN_depth =  findSelection("CNN_depth");
     let regularization =  findSelection("regularization");
-    // let epoch = findSelection("epoch")-1;
+    let epoch = findSelection("epoch")-1;
+    let lr = 0.002;
+    let CNN_out_width = 20;
+    let h_fc = 50;
     let num_epoch = 8;
-
-    jsonName = jsonFileHead+hidden_size+'-'+batch_size+'-'+
-        learning_rate+'-'+regularization+'-'+num_epoch+'.json';
-
-    
-    showJson(jsonName);
+    jsonName = jsonFileHead+CNN_mid_width+'-'+CNN_depth+'-'+
+        dropout+'-'+regularization+'-'+lr+'-'+CNN_out_width+'-'+h_fc+'-'+num_epoch+'.json';
+    console.log('Run:'+CNN_mid_width+'-'+CNN_depth+'-'+
+        dropout+'-'+regularization+'-'+lr+'-'+CNN_out_width+'-'+h_fc+'-'+num_epoch+'-epoch = '+epoch);
+    showJson(jsonName, epoch);
 
 }
 
-var jsonFileHead = 'https://bingcheng.openmc.cn/HyperQuest/data/2layerJson/'
+var jsonFileHead = '../data/convJson/'
 showForm()
-showJson(jsonFileHead+'3-10-0.004-0-8.json');
-
-
-
+showJson(jsonFileHead+'128-0-0.2-0.03-0.002-20-50-8.json', 5);
