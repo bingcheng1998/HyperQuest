@@ -1,3 +1,38 @@
+function generateCanvas(num){
+  innerHTML = '';
+  for(let i = 0; i < num; i++){
+    innerHTML += '<canvas id="myCanvas' + i +'" width="5" height="5"></canvas>\n';
+  };
+  document.getElementById("gradient_canvas").innerHTML = innerHTML;
+}
+
+function plot(data, i, canvasId, epoch) {
+  let rgbdata = data["epo_W1"][epoch][i];
+  let c = document.getElementById(canvasId); 
+  var ctx = c.getContext("2d"); 
+  let smooth = false;
+  let r,g,b; 
+
+  for(let i=0; i< rgbdata.length; i++){ 
+    for(let j=0; j< rgbdata[0].length; j++){ 
+      r = rgbdata[i][j][0]; 
+      g = rgbdata[i][j][1];  
+      b = rgbdata[i][j][2];    
+      ctx.fillStyle = "rgba("+r+","+g+","+b+", 1)";  
+      ctx.fillRect( j, i, 1, 1 ); 
+    } 
+  } 
+}
+
+function plotAllHiddenStates(data, epoch) {
+  console.log('"'+epoch+'"');
+  let num = data["epo_W1"][epoch].length;
+  
+  generateCanvas(num);
+  for(let i = 0; i < num; i++){
+    plot(data, i, 'myCanvas'+i, epoch);
+  };
+}
 function genData(dataNames, rawJson, epoch){
     data = [];
     itrations = rawJson["epo_it"][epoch];
@@ -75,50 +110,15 @@ function drawLineChart(rawJson, epoch) {
 
     Plotly.newPlot('train_and_vali_acc', data, layout2);
 }
-function generateCanvas(num){
-  innerHTML = '';
-  for(let i = 0; i < num; i++){
-    innerHTML += '<canvas id="myCanvas' + i +'" width="5" height="5"></canvas>\n';
-  };
-  document.getElementById("gradient_canvas").innerHTML = innerHTML;
-}
-
-function plot(data, i, canvasId, epoch) {
-  let rgbdata = data["epo_W1"][epoch][i];
-  let c = document.getElementById(canvasId); 
-  var ctx = c.getContext("2d"); 
-  let smooth = false;
-  let r,g,b; 
-
-  for(let i=0; i< rgbdata.length; i++){ 
-    for(let j=0; j< rgbdata[0].length; j++){ 
-      r = rgbdata[i][j][0]; 
-      g = rgbdata[i][j][1];  
-      b = rgbdata[i][j][2];    
-      ctx.fillStyle = "rgba("+r+","+g+","+b+", 1)";  
-      ctx.fillRect( j, i, 1, 1 ); 
-    } 
-  } 
-}
-
-function plotAllHiddenStates(data, epoch) {
-  console.log('"'+epoch+'"');
-  let num = data["epo_W1"][epoch].length;
-  
-  generateCanvas(num);
-  for(let i = 0; i < num; i++){
-    plot(data, i, 'myCanvas'+i, epoch);
-  };
-}
-
-
-
-function generateFrom(data, name, id){
+function generateFrom(data, name, id, show_data){
+    if(show_data == null){
+        show_data = data;
+    };
     let innerHTML = '<div><form name="'+id+'">\n<label>'+name+':</label>\t<p>'+
-    '<input type="radio" name="'+id+'" value='+data[0]+' checked> '+data[0]+' ';
+    '<input type="radio" name="'+id+'" value='+data[0]+' checked> '+show_data[0]+' ';
     for(let i=1; i<data.length; i++){
         innerHTML += 
-        '<input type="radio" name="'+id+'" value='+data[i]+' > '+data[i]+' ';
+        '<input type="radio" name="'+id+'" value='+data[i]+' > '+show_data[i]+' ';
     };
     innerHTML += 
         '<\p></form></div>';
@@ -130,12 +130,14 @@ function showForm(){
     let dropout = [0, 0.2, 0.5];
     let regularization = [0.02, 0.03];
     let CNN_depth = [0, 2, 4, 6];
+    let CNN_depth_show = [2, 4, 6, 8];
     let epoch = [1,2,3,4,5,6,7,8];
-    let innerHTML = generateFrom(CNN_mid_width, 'CNN_mid_width', 'CNN_mid_width');
-    innerHTML += generateFrom(dropout, 'dropout', 'dropout');
-    innerHTML += generateFrom(CNN_depth, 'CNN_depth', 'CNN_depth');
+    let innerHTML = "";
+    innerHTML += generateFrom(dropout, 'Dropout (P)', 'dropout');
+    innerHTML += generateFrom(CNN_depth, 'CNN depth', 'CNN_depth', CNN_depth_show);
+    innerHTML += generateFrom(CNN_mid_width, 'CNN width', 'CNN_mid_width');
     innerHTML += generateFrom(regularization, 'regularization', 'regularization');
-    innerHTML += generateFrom(epoch, 'epoch', 'epoch');
+    innerHTML += generateFrom(epoch, 'Epoch', 'epoch');
     // console.log(innerHTML);
     document.getElementById("form").innerHTML = innerHTML;
 }
@@ -159,7 +161,7 @@ function loadJSON(jsonFile, fun1, fun2, fun3, epoch) {
             let data = JSON.parse(xobj.responseText);
             fun1(data, epoch);
             fun2(data, epoch);
-            fun3(data);
+            fun3(data, epoch);
         }
     }
     xobj.send(null);
@@ -167,9 +169,10 @@ function loadJSON(jsonFile, fun1, fun2, fun3, epoch) {
 
 best_acc = 0;
 prev_acc = 0;
-function showAcc(data){
-    let acc = data["val_acc"];
-    document.getElementById("acc").innerHTML = '<p>best accuracy: '+best_acc+', previous accuracy: '+prev_acc+'.<p>validation accuracy is '+acc+ '.';
+function showAcc(data, epoch){
+    // console.log(data["his"]["vali_his"])
+    let acc = data["his"]["vali_his"][epoch+1]/1000000;
+    document.getElementById("acc").innerHTML = '<p>best_acc = '+best_acc+', prev_acc ='+prev_acc+'<p>validation accuracy is '+acc+ '.';
     if(acc>best_acc){best_acc = acc};
     prev_acc = acc;
 }
@@ -182,7 +185,7 @@ async function showJson(jsonName, epoch){
 
 function showLoading(){
     let loading_html = '<div class="loader"></div>';
-    document.getElementById("acc").innerHTML = loading_html+ 'Running on server: https://bingcheng.openmc.cn/HyperQuest/';
+    document.getElementById("acc").innerHTML = loading_html+ 'ML server connects successfully! Running on ML server ...';
 }
 
 function sleep(ms) {
@@ -207,6 +210,6 @@ function submitForm() {
 
 }
 
-var jsonFileHead = 'https://bingcheng.openmc.cn/HyperQuest/data/convJson/'
+var jsonFileHead = '../data/convJson/'
 showForm()
 showJson(jsonFileHead+'32-0-0-0.02-0.002-20-50-8.json', 0);

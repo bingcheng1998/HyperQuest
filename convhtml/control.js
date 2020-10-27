@@ -1,9 +1,12 @@
-function generateFrom(data, name, id){
+function generateFrom(data, name, id, show_data){
+    if(show_data == null){
+        show_data = data;
+    };
     let innerHTML = '<div><form name="'+id+'">\n<label>'+name+':</label>\t<p>'+
-    '<input type="radio" name="'+id+'" value='+data[0]+' checked> '+data[0]+' ';
+    '<input type="radio" name="'+id+'" value='+data[0]+' checked> '+show_data[0]+' ';
     for(let i=1; i<data.length; i++){
         innerHTML += 
-        '<input type="radio" name="'+id+'" value='+data[i]+' > '+data[i]+' ';
+        '<input type="radio" name="'+id+'" value='+data[i]+' > '+show_data[i]+' ';
     };
     innerHTML += 
         '<\p></form></div>';
@@ -15,12 +18,14 @@ function showForm(){
     let dropout = [0, 0.2, 0.5];
     let regularization = [0.02, 0.03];
     let CNN_depth = [0, 2, 4, 6];
+    let CNN_depth_show = [2, 4, 6, 8];
     let epoch = [1,2,3,4,5,6,7,8];
-    let innerHTML = generateFrom(CNN_mid_width, 'CNN_mid_width', 'CNN_mid_width');
-    innerHTML += generateFrom(dropout, 'dropout', 'dropout');
-    innerHTML += generateFrom(CNN_depth, 'CNN_depth', 'CNN_depth');
+    let innerHTML = "";
+    innerHTML += generateFrom(dropout, 'Dropout (P)', 'dropout');
+    innerHTML += generateFrom(CNN_depth, 'CNN depth', 'CNN_depth', CNN_depth_show);
+    innerHTML += generateFrom(CNN_mid_width, 'CNN width', 'CNN_mid_width');
     innerHTML += generateFrom(regularization, 'regularization', 'regularization');
-    innerHTML += generateFrom(epoch, 'epoch', 'epoch');
+    innerHTML += generateFrom(epoch, 'Epoch', 'epoch');
     // console.log(innerHTML);
     document.getElementById("form").innerHTML = innerHTML;
 }
@@ -44,7 +49,7 @@ function loadJSON(jsonFile, fun1, fun2, fun3, epoch) {
             let data = JSON.parse(xobj.responseText);
             fun1(data, epoch);
             fun2(data, epoch);
-            fun3(data);
+            fun3(data, epoch);
         }
     }
     xobj.send(null);
@@ -52,8 +57,9 @@ function loadJSON(jsonFile, fun1, fun2, fun3, epoch) {
 
 best_acc = 0;
 prev_acc = 0;
-function showAcc(data){
-    let acc = data["val_acc"];
+function showAcc(data, epoch){
+    console.log(data["his"]["vali_his"])
+    let acc = data["his"]["vali_his"][epoch+1]/1000000;
     document.getElementById("acc").innerHTML = '<p>best_acc = '+best_acc+', prev_acc ='+prev_acc+'<p>validation accuracy is '+acc+ '.';
     if(acc>best_acc){best_acc = acc};
     prev_acc = acc;
@@ -67,7 +73,7 @@ async function showJson(jsonName, epoch){
 
 function showLoading(){
     let loading_html = '<div class="loader"></div>';
-    document.getElementById("acc").innerHTML = loading_html+ 'Running on server: https://bingcheng.openmc.cn/HyperQuest/';
+    document.getElementById("acc").innerHTML = loading_html+ 'ML server connects successfully! Running on ML server ...';
 }
 
 function sleep(ms) {
@@ -94,7 +100,4 @@ function submitForm() {
 
 var jsonFileHead = '../data/convJson/'
 showForm()
-showJson(jsonFileHead+'32-0-0-0.02-0.002-20-50-8.json', 1);
-
-
-
+showJson(jsonFileHead+'32-0-0-0.02-0.002-20-50-8.json', 0);

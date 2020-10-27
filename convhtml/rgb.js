@@ -33,6 +33,3 @@ function plotAllHiddenStates(data, epoch) {
     plot(data, i, 'myCanvas'+i, epoch);
   };
 }
-
-
-
