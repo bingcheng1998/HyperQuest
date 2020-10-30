@@ -27,7 +27,8 @@ def visualize_grid(Xs, ubound=255.0, padding=1):
             if next_idx < N:
                 img = Xs[next_idx]
                 low, high = np.min(img), np.max(img)
-                grid[y0:y1, x0:x1] = ubound * (img - low) / (high - low)
+                dividor = (high - low) if (high - low) > 0 else 0.01
+                grid[y0:y1, x0:x1] = ubound * (img - low) / dividor
                 # grid[y0:y1, x0:x1] = Xs[next_idx]
                 next_idx += 1
             x0 += W + padding
@@ -57,7 +58,8 @@ def vis_grid(Xs):
     # normalize to [0,1]
     maxg = G.max()
     ming = G.min()
-    G = (G - ming) / (maxg - ming)
+    dividor = (maxg - ming) if (maxg - ming) > 0 else 0.01
+    G = (G - ming) / dividor
     return G
 
 
