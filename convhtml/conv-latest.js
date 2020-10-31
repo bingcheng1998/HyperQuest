@@ -185,7 +185,7 @@ async function showJson(jsonName, epoch){
 
 function showLoading(){
     let loading_html = '<div class="loader"></div>';
-    document.getElementById("acc").innerHTML = loading_html+ 'ML server connects successfully! Running on ML server ...';
+    document.getElementById("acc").innerHTML = loading_html+ 'Loading . . . ';
 }
 
 function sleep(ms) {

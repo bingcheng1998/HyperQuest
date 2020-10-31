@@ -5,12 +5,6 @@ HyperQuest is a web-app used by beginners in Machine Learning to easily get a pr
 
 ---
 
-## HyperQuest Alpha is ready!
-
-You can visit [this site](https://bingcheng.openmc.cn/HyperQuest/) to try!
-
----
-
 ## TODO
 
 - [x] Generate data
@@ -46,10 +40,36 @@ You can visit [this site](https://bingcheng.openmc.cn/HyperQuest/) to try!
 
 2. Use the HyperQuest Javascript (below the anchor HTML)
 
+   1. Embed the 2-layer net
+   
    ```javascript
    <script type="text/javascript" src='https://cdn.plot.ly/plotly-latest.min.js'></script>
-   <script type="text/javascript" src='https://bingcheng.openmc.cn/HyperQuest/html/hyperquest-0.1.0.js'></script>
+   <script type="text/javascript" src='https://bingcheng.openmc.cn/HyperQuest/html/2-layer-latest.js'></script>
+   ```
+   
+   2. Embed the neural net
+   
+   ```html
+   <script type="text/javascript" src='https://cdn.plot.ly/plotly-latest.min.js'></script>
+   <script type="text/javascript" src='https://bingcheng.openmc.cn/HyperQuest/convhtml/conv-latest.js'></script>
    ```
 
 ---
 
+## 1. Two Layer Net
+Try the simple version [here](https://bingcheng.openmc.cn/HyperQuest/versions/TwoLayerNet/).
+
+## 2. Conv Neural Net 
+Try the convolutional version [here](https://bingcheng.openmc.cn/HyperQuest/versions/ConvNet/).
+
+### Tuning Parameters is time-consuming?
+![https://bingcheng.openmc.cn/HyperQuest/](https://img.vim-cn.com/71/067577b8e3103b3d990144be72a6b5772f85ea.png)
+
+### Don't understand the usage of each parameter?
+![https://bingcheng.openmc.cn/HyperQuest/](https://img.vim-cn.com/6a/2716de2b962e985cf4bfb5d64d9292d8165237.png)
+
+### The meaning of the curve is difficult to understand?
+![https://bingcheng.openmc.cn/HyperQuest/](https://img.vim-cn.com/f8/547ddd6e90b010b448d4473e8d081bc40dd777.png)
+
+### HyperQuest can turn you into an expert!
+![https://bingcheng.openmc.cn/HyperQuest/](https://img.vim-cn.com/58/16771e2f97c0468052b4120ca2c68062b42b74.png)
