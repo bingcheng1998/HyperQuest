@@ -16,7 +16,7 @@ HyperQuest is a web-app used by beginners in Machine Learning to easily get a pr
 - [x] Add PV/UV to web
 - [x] Use brighter color
 - [x] Try flat design
-- [ ] generate wechat share `<meta>`
+- [ ] ~~generate wechat share `<meta>`~~
 - [x] generate tweeter share `meta`
 - [x] Add more description to web
 - [x] Provide the easy-to-use model for other web pages
