@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+	
+<meta property="og:type" content="website" />
+<meta property="og:title" content="HyperQuest! Machine Learning Hyper-parameter Tuning.">
+<meta property="og:description" content="HHyperQuest mimics the hyperparameter tuning app from Stanford University, CS231n. HyperQuest is a web-app designed for beginners in Machine Learning to easily get a proper intuition for choosing the right hyperparameters. This is initially an extremely daunting task because not having proper hyperparameters leads to the models breaking down.">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/0081Kckwgy1gjy5jug7xbj30ar067q2t.jpg">
+<meta property="og:url" content="https://bingcheng.openmc.cn/HyperQuest/">
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-R8Y6DPG1BC"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-R8Y6DPG1BC');
+</script>
+
+
+<!-- Global site tag (hm.js) - Baidu Analytics -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?736ceb6473823581e338e5ea410a1f7e";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="description" content="HyperQuest mimics the hyper parameter tuning app from Stanford University, CS231n. HyperQuest is a web-app designed for beginners in Machine Learning to easily get a proper intuition for choosing the right hyper parameters. This is initially an extremely daunting task because not having proper hyper parameters leads to the models breaking down." />
+		<meta name="generator" content="RapidWeaver" />
+		<link rel="apple-touch-icon" sizes="167x167" href="https://bingcheng.openmc.cn/HyperQuest/resources/medium.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="https://bingcheng.openmc.cn/HyperQuest/resources/icon.png" />
+<link rel="apple-touch-icon" sizes="152x152" href="https://bingcheng.openmc.cn/HyperQuest/resources/small.png" />
+<link rel="mask-icon" href="https://bingcheng.openmc.cn/HyperQuest/resources/icon.png" color="rgba(253,180,48,1.00)" /><link rel="icon" type="image/png" href="https://bingcheng.openmc.cn/HyperQuest/resources/favicon_medium.png" sizes="32x32" />
+<link rel="icon" type="image/png" href="https://bingcheng.openmc.cn/HyperQuest/resources/favicon_small.png" sizes="16x16" />
+<link rel="icon" type="image/png" href="https://bingcheng.openmc.cn/HyperQuest/resources/favicon_large.png" sizes="64x64" />
+
+	
+	<title>HyperQuest: Online Hyperparameters Tuning for Machine Learning</title>
+	<link rel="stylesheet" type="text/css" media="all" href="../rw_common/themes/Engineer/consolidated-9.css?rwcache=627971607" />
+		
+	    		<link rel='stylesheet' type='text/css' media='all' href='../rw_common/plugins/stacks/stacks.css?rwcache=627971607' />
+		<link rel='stylesheet' type='text/css' media='all' href='files/stacks_page_page9.css?rwcache=627971607' />
+        
+        
+        
+        
+		
+        <meta name="formatter" content="Stacks v4.0.3 (4795)" >
+		<meta class="stacks4 stack version" id="com.rapidweavercentral.stacks.dropcapthing" name="DropCapThing" content="1.0.1">
+		<meta class="stacks4 stack version" id="com.weavium.stacks.Image_Card" name="Image Card" content="1.0.8">
+		
+
+</head>
+
+<!-- This page was created with RapidWeaver from Realmac Software. http://www.realmacsoftware.com -->
+
+<body>
+	<div class="hero" id="hero">
+		<nav class="navbar navbar-expand-lg">
+			<a class="navbar-brand" href="https://bingcheng.openmc.cn/HyperQuest/"><img src="../rw_common/images/HyperQuestBar.png" width="290" height="167" alt="HyperQuest icon (a bulb)"/> <span class="navbar-title">HyperQuest</span></a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNav">
+				<ul class="navbar-nav ml-auto"><li class="nav-item"><a href="../" rel="" class="nav-link">HyperQuest</a></li><li class="nav-item has-dropdown"><a href="../versions/" rel="" class="nav-link dropdown-toggle" data-toggle="dropdown">Versions</a><ul class="navbar-nav ml-auto"><li class="nav-item"><a href="../versions/v0.1.0/" rel="" class="nav-link">0.1.0</a></li><li class="nav-item"><a href="../versions/L.0.1.3/" rel="" class="nav-link">L.0.1.3</a></li><li class="nav-item"><a href="../versions/TwoLayerNet/" rel="" class="nav-link">Two Layer Net</a></li><li class="nav-item"><a href="../versions/C.0.1.1/" rel="" class="nav-link">C.0.1.1</a></li><li class="nav-item"><a href="../versions/ConvNet/" rel="" class="nav-link">Conv Net</a></li></ul></li><li class="nav-item"><a href="../about/" rel="" class="nav-link">About</a></li></ul>
+			</div>
+		</nav>
+
+		<div class="hero-content container d-flex align-items-center" id="hero">
+			<div class="">
+				<h1 class="hero-title">HyperQuest</h1>
+				<p class="hero-slogan display-4">Optimize your model, one parameter at a time...</p>
+			</div>
+			<div class="hero-background" title="HyperQuest Banner"></div>
+			<div class="hero-overlay"></div>
+		</div>
+
+	</div>
+
+    <div class="content">
+        <section class="main" style="position: relative;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 main">
+                        
+<div id='stacks_out_1_page9' class='stacks_top'><div id='stacks_in_1_page9' class=''><div id='stacks_out_78_page9' class='stacks_out'><div id='stacks_in_78_page9' class='stacks_in com_rapidweavercentral_stacks_dropcapthing_stack'><!-- DropCapThing by RapidWeaver Central. Visit http://www.weaverthings.com for more information. -->
+	<div id="dropcapThingstacks_in_78_page9">
+		<div class="dropcapthing"><div id='stacks_out_84_page9' class='stacks_out'><div id='stacks_in_84_page9' class='stacks_in text_stack'><span style="color:#000000;">HyperQuest mimics the hyper parameter tuning app from Stanford University, CS231n. </span><span style="color:#000000;font-weight:bold; ">HyperQuest</span><span style="color:#000000;"> is a web-app designed for beginners in Machine Learning to easily get a proper intuition for choosing the right hyper parameters. This is initially an extremely daunting task because not having proper hyper parameters leads to the models breaking down.</span></div></div></div>
+	</div><!-- end of DropCapThing -->
+</div></div><div id='stacks_out_114_page9' class='stacks_out'><div id='stacks_in_114_page9' class='stacks_in com_yourhead_stacks_two_columns_stack'><div class='s3_row'>
+	<div class='s3_column s3_column_left'><div id='stacks_out_82_page9' class='stacks_out'><div id='stacks_in_82_page9' class='stacks_in com_weavium_stacks_Image_Card_stack'>
+<link href='https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css' rel='stylesheet'>
+
+
+
+
+
+	<script src="https://gapis.geekzu.org/ajax/libs/webfont/1.6.26/webfont.js"></script>
+	<script>
+	  WebFont.load({
+	    google: {
+	      families: ['Montserrat']
+	    }
+	  });
+	</script>
+
+
+<div id='card-stacks_in_82_page9' class="card-center">
+	<a  href="../versions/TwoLayerNet/" >
+		<div class='card-inner shift'>
+			<span class='card-caption '><p style="text-align:center;"><span style="font-size:42px; color:#FFFFFF;font-weight:bold; ">Two Layer Net</span></p></span>
+			<span class='card-more '>
+	      
+	        <i class="ion-arrow-right-c"></i>
+	      
+				
+				
+	      
+	      
+			</span>
+		</div>
+	</a>
+</div>
+
+
+</div></div></div>
+	<div class='s3_column s3_column_right'><div id='stacks_out_117_page9' class='stacks_out'><div id='stacks_in_117_page9' class='stacks_in com_weavium_stacks_Image_Card_stack'>
+<link href='https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css' rel='stylesheet'>
+
+
+
+
+
+	<script src="https://gapis.geekzu.org/ajax/libs/webfont/1.6.26/webfont.js"></script>
+	<script>
+	  WebFont.load({
+	    google: {
+	      families: ['Montserrat']
+	    }
+	  });
+	</script>
+
+
+<div id='card-stacks_in_117_page9' class="card-center">
+	<a  href="../versions/ConvNet/" >
+		<div class='card-inner shift'>
+			<span class='card-caption '><p style="text-align:center;"><span style="font-size:42px; color:#FFFFFF;font-weight:bold; ">Convolutional Neural Net</span></p></span>
+			<span class='card-more '>
+	      
+	        <i class="ion-arrow-right-c"></i>
+	      
+				
+				
+	      
+	      
+			</span>
+		</div>
+	</a>
+</div>
+
+
+</div></div></div>
+</div></div></div></div></div>
+
+                    </div>
+
+                    <div class="col-sm-12 sidebar">
+                        <h2></h2>
+                         
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+	<footer class="footer">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12 footer-content">
+					<ul class="navbar-nav ml-auto"><li class="nav-item"><a href="../" rel="" class="nav-link">HyperQuest</a></li><li class="nav-item has-dropdown"><a href="../versions/" rel="" class="nav-link dropdown-toggle" data-toggle="dropdown">Versions</a></li><li class="nav-item"><a href="../about/" rel="" class="nav-link">About</a></li></ul>
+					
+				</div>
+			</div>
+		</div>
+	</footer>
+
+	<script type="text/javascript" src="../rw_common/themes/Engineer/js/main.js?rwcache=627971607"></script>
+</body>
+
+</html>
