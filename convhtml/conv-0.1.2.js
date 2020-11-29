@@ -128,7 +128,7 @@ function generateFrom(data, name, id, show_data){
 function showForm(){
     let CNN_mid_width = [32, 64, 128];
     let dropout = [0, 0.2, 0.5];
-    let regularization = [0.001, 0.01, 0.02, 0.03, 0.1];
+    let regularization = [0.02, 0.03];
     let CNN_depth = [0, 2, 4, 6];
     let CNN_depth_show = [2, 4, 6, 8];
     let epoch = [1,2,3,4,5,6,7,8];
@@ -172,7 +172,7 @@ prev_acc = 0;
 function showAcc(data, epoch){
     // console.log(data["his"]["vali_his"])
     let acc = data["his"]["vali_his"][epoch+1]/1000000;
-    document.getElementById("acc").innerHTML = '<p>🏆 best accuracy: '+best_acc+',<p> 🔙 previous accuracy: '+prev_acc+',<p>🔵 Current accuracy: '+acc+ '.';
+    document.getElementById("acc").innerHTML = '<p>🏆 best accuracy: '+best_acc+', 🔙 previous accuracy: '+prev_acc+'<p>🔵 Current accuracy: '+acc+ '.';
     if(acc>best_acc){best_acc = acc};
     prev_acc = acc;
 }
@@ -210,7 +210,6 @@ function submitForm() {
 
 }
 
-// var jsonFileHead = 'https://bingcheng.openmc.cn/HyperQuest/data/convJson2/'
-var jsonFileHead = '../data/convJson2/'
+var jsonFileHead = 'https://bingcheng.openmc.cn/HyperQuest/data/convJson/'
 showForm()
-showJson(jsonFileHead+'32-0-0-0.001-0.002-20-50-8.json', 0);
+showJson(jsonFileHead+'32-0-0-0.02-0.002-20-50-8.json', 0);

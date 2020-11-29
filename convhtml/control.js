@@ -16,7 +16,7 @@ function generateFrom(data, name, id, show_data){
 function showForm(){
     let CNN_mid_width = [32, 64, 128];
     let dropout = [0, 0.2, 0.5];
-    let regularization = [0.02, 0.03];
+    let regularization = [0.001, 0.01, 0.02, 0.03, 0.1];
     let CNN_depth = [0, 2, 4, 6];
     let CNN_depth_show = [2, 4, 6, 8];
     let epoch = [1,2,3,4,5,6,7,8];
@@ -67,7 +67,7 @@ function showAcc(data, epoch){
 
 async function showJson(jsonName, epoch){
     showLoading();
-    await sleep(epoch * 1000);
+    // await sleep(epoch * 1000);
     loadJSON(jsonName, plotAllHiddenStates, drawLineChart, showAcc, epoch);
 }
 
@@ -98,6 +98,6 @@ function submitForm() {
 
 }
 
-var jsonFileHead = '../data/convJson/'
+var jsonFileHead = '../data/convJson2/'
 showForm()
-showJson(jsonFileHead+'32-0-0-0.02-0.002-20-50-8.json', 0);
+showJson(jsonFileHead+'32-0-0-0.001-0.002-20-50-8.json', 0);
