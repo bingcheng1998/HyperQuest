@@ -210,7 +210,7 @@ function submitForm() {
 
 }
 
-// var jsonFileHead = 'https://bingcheng.openmc.cn/HyperQuest/data/convJson2/'
-var jsonFileHead = '../data/convJson2/'
+var jsonFileHead = 'https://bingcheng.openmc.cn/HyperQuest/data/convJson2/'
+// var jsonFileHead = '../data/convJson2/'
 showForm()
 showJson(jsonFileHead+'32-0-0-0.001-0.002-20-50-8.json', 0);
