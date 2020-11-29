@@ -173,14 +173,14 @@
 .static-bg2stacks_in_3 {
 	background-color: #FFFFFF;
 	background-repeat: repeat-x;
-	background-image: -khtml-gradient(linear, left top, right bottom, from(#FBEDFF), to(#FFFFFF));
-	background-image: -moz-linear-gradient(left, #FBEDFF, #FFFFFF);
-	background-image: -ms-linear-gradient(left, #FBEDFF, #FFFFFF);
-	background-image: -webkit-gradient(linear, left top, right bottom, color-stop(0%, #FBEDFF), color-stop(100%, #FFFFFF));
-	background-image: -webkit-linear-gradient(left, #FBEDFF, #FFFFFF);
-	background-image: -o-linear-gradient(left, #FBEDFF, #FFFFFF);
-	background-image: linear-gradient(left, #FBEDFF, #FFFFFF);
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FBEDFF', endColorstr='#FFFFFF', GradientType=1);
+	background-image: -khtml-gradient(linear, left top, right bottom, from(#F0E2FF), to(#FFFFFF));
+	background-image: -moz-linear-gradient(left, #F0E2FF, #FFFFFF);
+	background-image: -ms-linear-gradient(left, #F0E2FF, #FFFFFF);
+	background-image: -webkit-gradient(linear, left top, right bottom, color-stop(0%, #F0E2FF), color-stop(100%, #FFFFFF));
+	background-image: -webkit-linear-gradient(left, #F0E2FF, #FFFFFF);
+	background-image: -o-linear-gradient(left, #F0E2FF, #FFFFFF);
+	background-image: linear-gradient(left, #F0E2FF, #FFFFFF);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#F0E2FF', endColorstr='#FFFFFF', GradientType=1);
 }
 
 .static-bg3stacks_in_3 {
@@ -422,9 +422,8 @@ to {
 	padding:  3px;
 }
 
-#stacks_in_43 {
+#stacks_in_6 {
 	margin:  20px;
-	padding:  20px;
 }
 /* LetterboxThing by RapidWeaver Central  */
 
@@ -544,10 +543,6 @@ to {
 
 
 
-
-#stacks_in_28 {
-	margin:  8px;
-}
 /* LetterboxThing by RapidWeaver Central  */
 
 #LetterboxThingstacks_in_8 {

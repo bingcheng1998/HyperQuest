@@ -1,23 +1,23 @@
 
-#stacks_in_6_page1 {
+#stacks_in_6 {
 	margin:  20px;
 	padding:  20px;
 }
-#stacks_in_4_page1_button {
+#stacks_in_4_button {
 	display:block;
 	position: relative;
 	text-align: center;
 }
 
 
-#stacks_in_4_page1 a:link, #stacks_in_4_page1 a:visited {
+#stacks_in_4 a:link, #stacks_in_4 a:visited {
 	 display:inline-block; 
 	
 	
 	position: relative;
 	text-decoration:none;
 }
-#stacks_in_4_page1 a:hover, #stacks_in_4_page1 a:active {
+#stacks_in_4 a:hover, #stacks_in_4 a:active {
 	color:#FFFFFF;
 }
 
@@ -27,7 +27,7 @@
 
 
 
-#stacks_in_4_page1 a:link, #stacks_in_4_page1 a:visited {
+#stacks_in_4 a:link, #stacks_in_4 a:visited {
 	background-color:#FFBF00;
 	background: -webkit-gradient(linear, left top, left bottom, from(#FFBF00), to(#BF7200));
 	border:1px solid #BF7200;
@@ -38,12 +38,12 @@
 	margin:5px;
 	font-weight:bold;
 }
-#stacks_in_4_page1 a:hover {
+#stacks_in_4 a:hover {
 	background-color:#FFCE00;
 	background: -webkit-gradient(linear, left top, left bottom, from(#FFCE00), to(#A56300));
 	box-shadow:rgba(0, 0, 0, 0.25) 0px 2px 4px;
 }
-#stacks_in_4_page1 a:active {
+#stacks_in_4 a:active {
 	background-color:#FFBF00;
 	box-shadow:rgba(0, 0, 0, 0.75) 0px 0px 4px inset;
 }
