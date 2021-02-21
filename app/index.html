@@ -33,6 +33,20 @@ var _hmt = _hmt || [];
 })();
 </script>
 
+<script>
+function auto_copyright($year) {
+	var $currentdate = new Date();
+	var $currentyear = $currentdate.getFullYear();
+	var $cty = $currentyear.toString();
+	var $sty = $year.toString();
+	if ($currentyear > $year) {
+		document.write($sty + ' - ' + $cty);
+		console.log($cty);
+	} else {
+		document.write($cty);
+	}
+}
+</script>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<meta name="description" content="HyperQuest mimics the hyper parameter tuning app from Stanford University, CS231n. HyperQuest is a web-app designed for beginners in Machine Learning to easily get a proper intuition for choosing the right hyper parameters. This is initially an extremely daunting task because not having proper hyper parameters leads to the models breaking down." />
 		<meta name="generator" content="RapidWeaver" />
@@ -45,16 +59,16 @@ var _hmt = _hmt || [];
 
 	
 	<title>HyperQuest: Online Hyperparameters Tuning for Machine Learning</title>
-	<link rel="stylesheet" type="text/css" media="all" href="../rw_common/themes/Engineer/consolidated-9.css?rwcache=628306425" />
+	<link rel="stylesheet" type="text/css" media="all" href="../rw_common/themes/Engineer/consolidated-9.css?rwcache=635569563" />
 		
-	    		<link rel='stylesheet' type='text/css' media='all' href='../rw_common/plugins/stacks/stacks.css?rwcache=628306425' />
-		<link rel='stylesheet' type='text/css' media='all' href='files/stacks_page_page9.css?rwcache=628306425' />
+	    		<link rel='stylesheet' type='text/css' media='all' href='../rw_common/plugins/stacks/stacks.css?rwcache=635569563' />
+		<link rel='stylesheet' type='text/css' media='all' href='files/stacks_page_page9.css?rwcache=635569563' />
         
         
         
         
 		
-        <meta name="formatter" content="Stacks v4.1.1 (5296)" >
+        <meta name="formatter" content="Stacks v4.1.3 (5361)" >
 		<meta class="stacks4 stack version" id="com.rapidweavercentral.stacks.dropcapthing" name="DropCapThing" content="1.0.1">
 		<meta class="stacks4 stack version" id="com.weavium.stacks.Image_Card" name="Image Card" content="1.0.8">
 		
@@ -194,7 +208,7 @@ var _hmt = _hmt || [];
 		</div>
 	</footer>
 
-	<script type="text/javascript" src="../rw_common/themes/Engineer/js/main.js?rwcache=628306425"></script>
+	<script type="text/javascript" src="../rw_common/themes/Engineer/js/main.js?rwcache=635569563"></script>
 </body>
 
 </html>
