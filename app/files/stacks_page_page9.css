@@ -1,0 +1,342 @@
+/* DropCapThing by RapidWeaver Central  */
+
+#dropcapThingstacks_in_78 {
+}
+
+#stacks_in_78 .dropcapthing:first-of-type::first-letter {
+	height: 0.7em;
+	margin: 0px 1px 1px 0;
+	padding: 0 0.1em 0 0;
+	font-size: 80px;
+	line-height: 80px;
+		
+	float: left;
+	font-weight:normal;;
+			
+}
+
+
+#stacks_in_84 {
+	margin:  16px;
+	padding:  16px;
+}
+#stacks_in_114>.s3_row {
+	margin: 0 -10px;
+}
+
+#stacks_in_114>.s3_row>.s3_column_left {
+	width: 50.00%;
+}
+
+#stacks_in_114>.s3_row>.s3_column_right {
+	width: 50.000000%;
+}
+
+
+
+
+#stacks_in_114>.s3_row>.s3_column {
+	padding: 0 10px;
+}
+
+
+
+
+
+
+
+
+
+
+@media only screen and (max-width: 770px) {
+
+
+
+}
+
+
+
+@media only screen and (max-width: 400px) {
+
+
+	#stacks_in_114>.s3_row  {
+		margin: -10px 0;
+	}
+	#stacks_in_114>.s3_row>.s3_column {
+		padding: 10px 0;
+		width:100%;
+	}
+
+
+}
+
+
+
+
+
+/*  */
+#card-stacks_in_82 .card-inner:hover::before {
+  opacity: 0.56; }
+
+#card-stacks_in_82 .card-inner:hover .card-more {
+  color: rgba(0, 0, 0, 0.50);
+  background: rgba(255, 255, 255, 1.00); }
+
+#card-stacks_in_82 .card-inner.shift:hover {
+  -webkit-transform: translateY(-7px);
+          transform: translateY(-7px); }
+
+/*  */
+.com_weavium_stacks_Image_Card_stack, #stacks_out_82 {
+  overflow: visible !important; }
+
+#card-stacks_in_82 {
+  /*  */
+  width: 100%;
+  /*  */
+  padding: 30px 20px;
+  box-sizing: border-box; }
+  #card-stacks_in_82.card-left {
+    margin-right: auto; }
+  #card-stacks_in_82.card-right {
+    margin-left: auto; }
+  #card-stacks_in_82.card-center {
+    margin: 0 auto; }
+  #card-stacks_in_82 * {
+    box-sizing: border-box;
+    transition: all 0.3s ease-out; }
+  #card-stacks_in_82 a:first-of-type {
+    text-decoration: none; }
+  #card-stacks_in_82 .card-inner {
+    /*  */
+    font-family: "Montserrat";
+    /*  */
+    /*  */
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.50);
+    /*  */
+    color: rgba(255, 255, 255, 1.00);
+    padding: 30px 25px;
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    position: relative;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    /*  */
+    background: url(https://img.vim-cn.com/55/4f55d0862913fbb4c590294ea25ddcd75f25f4.png);
+    /*  */
+    background-color: rgba(255, 255, 255, 1.00);
+    background-size: cover;
+    border-radius: 4px;
+    background-repeat: no-repeat;
+    background-position: center top;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between; }
+    #card-stacks_in_82 .card-inner::before {
+      /*  */
+      background: linear-gradient(to bottom right, #99609C, #3F5EFB);
+      /*  */
+      content: '';
+      top: 50%;
+      left: 50%;
+      width: 105%;
+      height: 105%;
+      display: block;
+      position: absolute;
+      opacity: 0.35;
+      -webkit-transform: translate(-50%, -50%);
+              transform: translate(-50%, -50%); }
+    #card-stacks_in_82 .card-inner .card-caption {
+      /*  */
+      text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.50);
+      /*  */
+      margin: 0;
+      z-index: 2;
+      font-weight: bold;
+      position: relative; }
+      #card-stacks_in_82 .card-inner .card-caption.hide {
+        display: none; }
+    #card-stacks_in_82 .card-inner .card-more {
+      z-index: 2;
+      margin-top: auto;
+      width: 35px;
+      height: 35px;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      color: inherit;
+      position: relative;
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center;
+      -ms-flex-item-align: end;
+          align-self: flex-end;
+      -webkit-box-pack: center;
+          -ms-flex-pack: center;
+              justify-content: center;
+      border: 3px solid rgba(255, 255, 255, 1.00);
+      border-radius: 35px;
+      transition: all 0.1s ease-out; }
+      #card-stacks_in_82 .card-inner .card-more.hide {
+        display: none; }
+      #card-stacks_in_82 .card-inner .card-more i {
+        font-size: 20px; }
+
+@media (min-width: 767px) {
+  #card-stacks_in_82 .card-inner {
+    height: 250px; }
+    #card-stacks_in_82 .card-inner .card-caption {
+      font-size: 24px;
+      line-height: 34px; } }
+
+@media (min-width: 468px) and (max-width: 767px) {
+  #card-stacks_in_82 .card-inner {
+    height: 250px; }
+    #card-stacks_in_82 .card-inner .card-caption {
+      font-size: 24px;
+      line-height: 34px; } }
+
+@media (min-width: 0px) and (max-width: 468px) {
+  #card-stacks_in_82 .card-inner {
+    height: 250px; }
+    #card-stacks_in_82 .card-inner .card-caption {
+      font-size: 24px;
+      line-height: 34px; } }
+/*  */
+#card-stacks_in_117 .card-inner:hover::before {
+  opacity: 0.8; }
+
+#card-stacks_in_117 .card-inner:hover .card-more {
+  color: rgba(0, 0, 0, 0.50);
+  background: rgba(255, 255, 255, 1.00); }
+
+#card-stacks_in_117 .card-inner.shift:hover {
+  -webkit-transform: translateY(-7px);
+          transform: translateY(-7px); }
+
+/*  */
+.com_weavium_stacks_Image_Card_stack, #stacks_out_117 {
+  overflow: visible !important; }
+
+#card-stacks_in_117 {
+  /*  */
+  width: 100%;
+  /*  */
+  padding: 30px 20px;
+  box-sizing: border-box; }
+  #card-stacks_in_117.card-left {
+    margin-right: auto; }
+  #card-stacks_in_117.card-right {
+    margin-left: auto; }
+  #card-stacks_in_117.card-center {
+    margin: 0 auto; }
+  #card-stacks_in_117 * {
+    box-sizing: border-box;
+    transition: all 0.3s ease-out; }
+  #card-stacks_in_117 a:first-of-type {
+    text-decoration: none; }
+  #card-stacks_in_117 .card-inner {
+    /*  */
+    font-family: "Montserrat";
+    /*  */
+    /*  */
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.50);
+    /*  */
+    color: rgba(255, 255, 255, 1.00);
+    padding: 30px 25px;
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    position: relative;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    /*  */
+    background: url(https://img.vim-cn.com/03/d33b64e6be77b339e22d943df55357b5499891.png);
+    /*  */
+    background-color: rgba(255, 255, 255, 1.00);
+    background-size: cover;
+    border-radius: 4px;
+    background-repeat: no-repeat;
+    background-position: center top;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between; }
+    #card-stacks_in_117 .card-inner::before {
+      /*  */
+      background: linear-gradient(to bottom right, #81273A, #3F5EFB);
+      /*  */
+      content: '';
+      top: 50%;
+      left: 50%;
+      width: 105%;
+      height: 105%;
+      display: block;
+      position: absolute;
+      opacity: 0.33;
+      -webkit-transform: translate(-50%, -50%);
+              transform: translate(-50%, -50%); }
+    #card-stacks_in_117 .card-inner .card-caption {
+      /*  */
+      text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.50);
+      /*  */
+      margin: 0;
+      z-index: 2;
+      font-weight: bold;
+      position: relative; }
+      #card-stacks_in_117 .card-inner .card-caption.hide {
+        display: none; }
+    #card-stacks_in_117 .card-inner .card-more {
+      z-index: 2;
+      margin-top: auto;
+      width: 35px;
+      height: 35px;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      color: inherit;
+      position: relative;
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center;
+      -ms-flex-item-align: end;
+          align-self: flex-end;
+      -webkit-box-pack: center;
+          -ms-flex-pack: center;
+              justify-content: center;
+      border: 3px solid rgba(255, 255, 255, 1.00);
+      border-radius: 35px;
+      transition: all 0.1s ease-out; }
+      #card-stacks_in_117 .card-inner .card-more.hide {
+        display: none; }
+      #card-stacks_in_117 .card-inner .card-more i {
+        font-size: 20px; }
+
+@media (min-width: 767px) {
+  #card-stacks_in_117 .card-inner {
+    height: 250px; }
+    #card-stacks_in_117 .card-inner .card-caption {
+      font-size: 24px;
+      line-height: 34px; } }
+
+@media (min-width: 468px) and (max-width: 767px) {
+  #card-stacks_in_117 .card-inner {
+    height: 250px; }
+    #card-stacks_in_117 .card-inner .card-caption {
+      font-size: 24px;
+      line-height: 34px; } }
+
+@media (min-width: 0px) and (max-width: 468px) {
+  #card-stacks_in_117 .card-inner {
+    height: 250px; }
+    #card-stacks_in_117 .card-inner .card-caption {
+      font-size: 24px;
+      line-height: 34px; } }
